@@ -1,0 +1,29 @@
+[variables]
+site_name = "${domain}"
+admin_password = "${password:32}"
+db_root_password = "${password:32}"
+http_port = "8080"
+
+[config]
+env = [
+  "SITE_NAME=${site_name}",
+  "FRAPPE_SITE_NAME_HEADER=${site_name}",
+  "ADMIN_PASSWORD=${admin_password}",
+  "DB_ROOT_PASSWORD=${db_root_password}",
+  "CONFIGURE=1",
+  "CREATE_SITE=1",
+  "ENABLE_DB=1",
+  "MIGRATE=0",
+  "REGENERATE_APPS_TXT=1",
+  "PULL_POLICY=build",
+  "IMAGE_NAME=erpnext15-payments-lms:latest",
+  "MARIADB_VERSION=10.11",
+  "REDIS_VERSION=7-alpine",
+  "DB_HOST=db",
+  "DB_PORT=3306",
+  "SOCKETIO_PORT=9000",
+  "HTTP_PORT=${http_port}",
+  "UPSTREAM_REAL_IP_ADDRESS=127.0.0.1",
+  "UPSTREAM_REAL_IP_HEADER=X-Forwarded-For",
+  "UPSTREAM_REAL_IP_RECURSIVE=off"
+]
