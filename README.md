@@ -87,7 +87,7 @@ INSTALL_APP_ARGS: ${INSTALL_APP_ARGS:---install-app erpnext --install-app paymen
 
 ```yaml
 ports:
-  - "${HTTP_PORT:-8098}:8080"
+  - "${HTTP_PORT:-8081}:8080"
 ```
 
 - if using **Dokploy Domains + Traefik**, remove `ports:` and use `expose: 8080` instead.
@@ -143,7 +143,7 @@ DB_PORT=3306
 MARIADB_VERSION=10.11
 REDIS_VERSION=7-alpine
 SOCKETIO_PORT=9000
-HTTP_PORT=8098
+HTTP_PORT=8081
 
 UPSTREAM_REAL_IP_ADDRESS=127.0.0.1
 UPSTREAM_REAL_IP_HEADER=X-Forwarded-For
@@ -198,12 +198,12 @@ Recommended HAProxy headers:
 Example backend target:
 
 - Dokploy host: `192.168.1.50`
-- ERPNext published port: `8098`
+- ERPNext published port: `8081`
 
 HAProxy backend example target:
 
 ```haproxy
-server erpnext 192.168.1.50:8098 check
+server erpnext 192.168.1.50:8081 check
 ```
 
 ---
@@ -217,7 +217,7 @@ If you want auto-generated values from the repository, add a `template.toml` lik
 site_name = "${domain}"
 admin_password = "${password:32}"
 db_root_password = "${password:32}"
-http_port = "8098"
+http_port = "8081"
 
 [config]
 env = [
